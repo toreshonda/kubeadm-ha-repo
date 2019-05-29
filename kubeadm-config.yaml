@@ -1,7 +1,16 @@
 apiVersion: kubeadm.k8s.io/v1beta1
 kind: ClusterConfiguration
 kubernetesVersion: stable
+controllerManager:
+  ExtraArgs:
+    horizontal-pod-autoscaler-cpu-initialization-period: "20s"
+    horizontal-pod-autoscaler-downscale-stabilization: "3m"
+    node-monitor-grace-period: "15s"
+    pod-eviction-timeout: "30s"
+    node-monitor-period: "3s"
 apiServer:
+  ExtraArgs:
+    apiserver-count: "3"
   certSANs:
   - "oais-master-01"
   - "oais-master-02"
@@ -15,3 +24,12 @@ controlPlaneEndpoint: "172.20.238.221:16443"
 networking:
   # This CIDR is a Calico default. Substitute or remove for your CNI provider.
   podSubnet: "192.168.0.0/16"
+---
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+# kubelet specific options here
+authentication:
+  webhook:
+    enabled: true
+nodeStatusUpdateFrequency: "4s"
+rotateCertificates: true

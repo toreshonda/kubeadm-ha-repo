@@ -1,15 +1,16 @@
 apiVersion: kubeadm.k8s.io/v1beta1
 kind: ClusterConfiguration
 kubernetesVersion: stable
-apiServerExtraArgs:
-  apiserver-count: 3
-controllerManagerExtraArgs:
-  horizontal-pod-autoscaler-cpu-initialization-period: "20s"
-  horizontal-pod-autoscaler-downscale-stabilization: "3m"
-  node-monitor-grace-period: "15s"
-  pod-eviction-timeout: "30s"
-  node-monitor-period: "3s"
+controllerManager:
+  ExtraArgs:
+    horizontal-pod-autoscaler-cpu-initialization-period: "20s"
+    horizontal-pod-autoscaler-downscale-stabilization: "3m"
+    node-monitor-grace-period: "15s"
+    pod-eviction-timeout: "30s"
+    node-monitor-period: "3s"
 apiServer:
+  ExtraArgs:
+    apiserver-count: "3"
   certSANs:
   - "K8SHA_HOST1"
   - "K8SHA_HOST2"
