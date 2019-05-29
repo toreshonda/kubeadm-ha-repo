@@ -5,43 +5,43 @@
 #######################################
 
 # master keepalived virtual ip address
-export K8SHA_VIP=172.20.10.9
+export K8SHA_VIP=172.20.238.221
 
 # master01 ip address
-export K8SHA_IP1=172.20.10.10
+export K8SHA_IP1=172.20.238.211
 
 # master02 ip address
-export K8SHA_IP2=172.20.10.11
+export K8SHA_IP2=172.20.238.215
 
 # master03 ip address
-export K8SHA_IP3=172.20.10.12
+export K8SHA_IP3=172.20.238.229
 
 # master keepalived virtual ip hostname
-export K8SHA_VHOST=demo-vip.local
+export K8SHA_VHOST=vip-oais
 
 # master01 hostname
-export K8SHA_HOST1=demo-01.local
+export K8SHA_HOST1=oais-master-01
 
 # master02 hostname
-export K8SHA_HOST2=demo-02.local
+export K8SHA_HOST2=oais-master-02
 
 # master03 hostname
-export K8SHA_HOST3=demo-03.local
+export K8SHA_HOST3=oais-master-03
 
 # master01 network interface name
-export K8SHA_NETINF1=enp0s3
+export K8SHA_NETINF1=eth0
 
 # master02 network interface name
-export K8SHA_NETINF2=enp0s3
+export K8SHA_NETINF2=eth0
 
 # master03 network interface name
-export K8SHA_NETINF3=enp0s3
+export K8SHA_NETINF3=eth0
 
 # keepalived auth_pass config
-export K8SHA_KEEPALIVED_AUTH=412f7dc3bfed32194d1600c483e10ad1d
+export K8SHA_KEEPALIVED_AUTH=412f7dc3bfed32194d1600c483e10adcc
 
 # calico reachable ip address
-export K8SHA_CALICO_REACHABLE_IP=172.20.10.1
+export K8SHA_CALICO_REACHABLE_IP=8.8.8.8
 
 # kubernetes CIDR pod subnet
 export K8SHA_CIDR=192.168.0.0

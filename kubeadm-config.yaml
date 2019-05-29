@@ -1,0 +1,17 @@
+apiVersion: kubeadm.k8s.io/v1beta1
+kind: ClusterConfiguration
+kubernetesVersion: stable
+apiServer:
+  certSANs:
+  - "oais-master-01"
+  - "oais-master-02"
+  - "oais-master-03"
+  - "vip-oais"
+  - "172.20.238.211"
+  - "172.20.238.215"
+  - "172.20.238.229"
+  - "172.20.238.221"
+controlPlaneEndpoint: "172.20.238.221:16443"
+networking:
+  # This CIDR is a Calico default. Substitute or remove for your CNI provider.
+  podSubnet: "192.168.0.0/16"
